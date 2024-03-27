@@ -19,7 +19,7 @@ export const DevDiscordWidget = async () => {
 
   if (data)
     return (
-      <div className='lg:max-w-11/12 mt-8 flex w-full flex-col items-center justify-between rounded-2xl bg-transparent p-6 shadow-xl md:flex-row md:items-center lg:flex-col lg:items-center lg:px-6 xl:flex-row'>
+      <div className='lg:max-w-11/12 mt-7 flex w-full flex-col items-center justify-between rounded-2xl bg-transparent p-6 shadow-xl md:flex-row md:items-center lg:flex-col lg:items-center lg:px-6 xl:flex-row'>
         <div className='flex flex-col items-center justify-center md:flex-row lg:flex-col xl:flex-row'>
           <div className='mb-2 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-red-900/70 to-gray-900/50 p-1.5 shadow-xl md:mb-0 md:mr-3 lg:mb-2 lg:mr-0 xl:mb-0 xl:mr-3'>
             <Image
@@ -35,8 +35,8 @@ export const DevDiscordWidget = async () => {
             <span className='font-bold text-white'>{data.name} Discord</span>
             <div className='flex flex-col items-center sm:flex-row'>
               <div className='flex items-center'>
-                <span className='mr-1 inline-block h-3 w-3 rounded-full bg-green-500' />
-                <span className='absolute mr-1 inline-block h-3 w-3 rounded-full animate-ping bg-green-500' />
+              <span className='animate-pulse mr-1 inline-block h-3 w-3 rounded-full bg-green-400' />
+                {/* <span className='absolute mr-1 inline-block h-3 w-3 rounded-full animate-ping bg-green-500' /> */}
 
                 <span className='text-shad w-auto text-sm text-gray-100'>
                   {data.presence_count} Online

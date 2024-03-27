@@ -34,7 +34,7 @@ export const CallToActionSection = () => {
             </p>
           </div>
 
-          <div className='mt-6 flex-column items-center justify-center'>
+          <div className='overflow-y-scroll h-96 mt-6 flex-column items-center justify-center'>
             {/* <div className='lg:max-w-11/12 mt-8 flex w-full flex-col items-center justify-between rounded-2xl bg-gradient-to-br from-blue-600 to-gray-400 p-6 shadow-xl md:flex-row md:items-center lg:flex-col lg:items-center lg:px-6 xl:flex-row'>
 
               <iframe src="https://www.comhub.app/" height="200" width="500" title="Iframe Example"></iframe>
@@ -42,6 +42,7 @@ export const CallToActionSection = () => {
             <ComHubWidget />
             <DiscordWidget />
             <DevDiscordWidget />
+
 
           </div>
         </div>

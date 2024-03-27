@@ -2,24 +2,10 @@ import { links } from '@/app/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
-// const serverId = '941362322000203776'
-// const uri = `https://discord.com/api/guilds/${serverId}/widget.json`
-
-// async function getDiscordWidgetData() {
-//   try {
-//     const res = await fetch(uri, { next: { revalidate: 2000 } })
-//     return res.json()
-//   } catch (error) {
-//     return false
-//   }
-// }
-
-// const moduleCount = 10
-
-export const ComHubWidget = async () => {
+export const ComHubWidget = () => {
 
     return (
-      <div className='lg:max-w-11/12 mt-8 flex w-full flex-col items-center justify-between rounded-2xl bg-transparent p-6 shadow-xl md:flex-row md:items-center lg:flex-col lg:items-center lg:px-6 xl:flex-row'>
+      <div className='lg:max-w-11/12 mt-7 flex w-full flex-col items-center justify-between rounded-2xl bg-transparent p-6 shadow-xl md:flex-row md:items-center lg:flex-col lg:items-center lg:px-6 xl:flex-row'>
         <div className='flex flex-col items-center justify-center md:flex-row lg:flex-col xl:flex-row'>
           <div className='mb-2 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-black to-gray-900/50 p-1.5 shadow-xl md:mb-0 md:mr-3 lg:mb-2 lg:mr-0 xl:mb-0 xl:mr-3'>
             <Image
