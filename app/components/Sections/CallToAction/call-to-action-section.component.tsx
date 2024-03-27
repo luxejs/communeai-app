@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { DiscordWidget, GradientLayer } from '@/app/components'
+import { DiscordWidget, DevDiscordWidget, GradientLayer, ComHubWidget } from '@/app/components'
 import { links, gradientSectionColors } from '@/app/utils'
 
 type CTAWrapper = {
@@ -29,13 +29,20 @@ export const CallToActionSection = () => {
               Commune Hub
             </h2>
             <p className='mt-4 text-base leading-7 text-gray-300'>
-              Join Commune&apos;s Discord. Code, connect, innovate – Shape the
-              future together!
+              Join Commune&apos;s Discord. Code, Connect, Innovate. 
+              Shape the future together!
             </p>
           </div>
 
-          <div className='mt-6 flex items-center justify-center'>
+          <div className='mt-6 flex-column items-center justify-center'>
+            {/* <div className='lg:max-w-11/12 mt-8 flex w-full flex-col items-center justify-between rounded-2xl bg-gradient-to-br from-blue-600 to-gray-400 p-6 shadow-xl md:flex-row md:items-center lg:flex-col lg:items-center lg:px-6 xl:flex-row'>
+
+              <iframe src="https://www.comhub.app/" height="200" width="500" title="Iframe Example"></iframe>
+            </div> */}
+            <ComHubWidget />
             <DiscordWidget />
+            <DevDiscordWidget />
+
           </div>
         </div>
       </CtaWrapper>
