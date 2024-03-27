@@ -16,7 +16,7 @@ export const FrequentQuestions = () => {
 
       <div className='mx-auto max-w-4xl divide-y divide-white/10'>
         <h2 className='text-2xl font-bold leading-10 tracking-tight text-white'>
-          Frequently asked questions
+          Frequently Asked Questions (FAQ)
         </h2>
         <dl className='mt-10 space-y-6 divide-y divide-white/10'>
           {faqData.map((faq) => (
