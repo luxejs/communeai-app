@@ -14,7 +14,7 @@ import Link from 'next/link'
 //   }
 // }
 
-const moduleCount = 10
+// const moduleCount = 10
 
 export const ComHubWidget = async () => {
 
