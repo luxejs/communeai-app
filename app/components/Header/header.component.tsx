@@ -61,6 +61,8 @@ export const Header = () => {
                   <HeaderLink href={links.github} icon='/github-icon-white.svg' alt="Commune's Github Link" className={`${commonButtonClass} mb-4`} />
                   <HeaderLink href={links.discord} icon='/discord-icon-white.svg' alt="Commune's Discord Link" className={commonButtonClass} />
                   <HeaderLink href={links.x} icon='/x-icon-white.svg' alt="Commune X/Twitter" className={commonButtonClass} />
+                  <HeaderLink href={links.telegram} icon='/telegram-icon-white.svg' alt="Commune X/Twitter" className={commonButtonClass} />
+
                 </div>
               </div>
             </div>
@@ -72,7 +74,7 @@ export const Header = () => {
         <nav className={`p-4 px-6 mx-auto grid w-full grid-flow-col grid-cols-3 items-center justify-between`} aria-label='Global'>
           <Link href={links.home} className={`col-span-1 ${commonButtonClass}`}>
             <span className='sr-only'>Commune AI</span>
-            <Image src={'/commune-logo.svg'} width={25} height={25} alt='commune logo' priority className='mr-[3px]' />
+            <Image src={'/comhub.png'} width={25} height={25} alt='commune logo' priority className='mr-[3px]' />
           </Link>
           <div className='hidden justify-center lg:flex lg:gap-x-12'>
             {navigation.map(({ name, href, external }) => (
@@ -85,6 +87,7 @@ export const Header = () => {
             <HeaderLink href={links.github} icon='/github-icon-white.svg' alt="Commune's Github Link" className={commonButtonClass} />
             <HeaderLink href={links.discord} icon='/discord-icon-white.svg' alt="Commune's Discord Link" className={commonButtonClass} />
             <HeaderLink href={links.x} icon='/x-icon-white.svg' alt="Commune X/Twitter" className={commonButtonClass} />
+            <HeaderLink href={links.telegram} icon='/telegram-icon-white.svg' alt="Commune X/Twitter" className={commonButtonClass} />
 
           </div>
           <div className='col-span-3 ml-auto lg:hidden '>

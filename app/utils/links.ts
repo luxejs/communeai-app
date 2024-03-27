@@ -6,5 +6,6 @@ export const links = {
   discord: 'https://discord.gg/communeai',
   x: 'https://twitter.com/communeaidotorg',
   comhub: 'https://www.comhub.app/',
-  devDiscord: 'https://discord.gg/6CpXmP6P'
+  devDiscord: 'https://discord.gg/6CpXmP6P',
+  telegram: 'https://t.me/communecommunity',
 }
