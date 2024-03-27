@@ -8,9 +8,12 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Commune AI',
   description:
-    'Commune AI: Revolutionizing software development with seamless connectivity, effortless code reuse, limitless scalability, and honest, unbiased voting. Join us!',
+    'Commune AI: Revolutionizing software development for everyone. Join our Discord community today!',
   robots: 'all',
+  icons: [{ rel: 'icon', url: '/favicon.ico' }]
+
 }
+
 
 export default function RootLayout({
   children,
