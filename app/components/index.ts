@@ -7,4 +7,7 @@ export {
 export { GradientLayer, GridLines } from './BackgroundEffects'
 export { Header } from './Header'
 export { DiscordWidget } from './DiscordWidget'
+export { DevDiscordWidget } from './DiscordWidget'
+export { ComHubWidget } from './ComHubWidget'
+
 export { Footer } from './Footer'
