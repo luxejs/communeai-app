@@ -60,6 +60,7 @@ export const Header = () => {
                 <div className='py-6 flex space-x-3'>
                   <HeaderLink href={links.github} icon='/github-icon-white.svg' alt="Commune's Github Link" className={`${commonButtonClass} mb-4`} />
                   <HeaderLink href={links.discord} icon='/discord-icon-white.svg' alt="Commune's Discord Link" className={commonButtonClass} />
+                  <HeaderLink href={links.x} icon='/x-icon-white.svg' alt="Commune X/Twitter" className={commonButtonClass} />
                 </div>
               </div>
             </div>
