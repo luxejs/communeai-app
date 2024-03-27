@@ -83,6 +83,8 @@ export const Header = () => {
           <div className='hidden justify-end lg:flex lg:gap-x-4'>
             <HeaderLink href={links.github} icon='/github-icon-white.svg' alt="Commune's Github Link" className={commonButtonClass} />
             <HeaderLink href={links.discord} icon='/discord-icon-white.svg' alt="Commune's Discord Link" className={commonButtonClass} />
+            <HeaderLink href={links.x} icon='/x-icon-white.svg' alt="Commune X/Twitter" className={commonButtonClass} />
+
           </div>
           <div className='col-span-3 ml-auto lg:hidden '>
             <button type='button' className={`${commonButtonClass} -m-2.5`} onClick={toggleMobileMenu}>
