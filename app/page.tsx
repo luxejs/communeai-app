@@ -25,6 +25,7 @@ export default async function Home() {
               color={section.color}
               features={section.features}
               gradientColor={section.gradientColor}
+              image={section.image}
             />
           )
         })}

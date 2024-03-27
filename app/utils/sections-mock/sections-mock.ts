@@ -10,10 +10,11 @@ export const sections = [
   {
     sectionName: 'networking',
     title: 'Networking & Wrapping Over Everything',
-    subtitle: 'Everything you need',
+    subtitle: 'Everything You Need',
     color: 'bg-blue-400/[0.03]',
     features: networkingFeatures,
     gradientColor: gradientSectionColors.blue,
+    image: '/commune-single-block_blue.gif',
   },
   {
     sectionName: 'reusability',
@@ -22,6 +23,8 @@ export const sections = [
     color: 'bg-green-400/[0.03]',
     gradientColor: gradientSectionColors.green,
     features: reusabilityFeatures,
+    image: '/commune-single-block_green.gif',
+
   },
   {
     sectionName: 'scalability',
@@ -30,6 +33,8 @@ export const sections = [
     color: 'bg-yellow-400/[0.03]',
     gradientColor: gradientSectionColors.yellow,
     features: scalabilityFeatures,
+    image: '/commune-single-block_yellow.gif',
+
   },
   {
     sectionName: 'namespaces',
@@ -38,6 +43,8 @@ export const sections = [
     color: 'bg-red-400/[0.03]',
     gradientColor: gradientSectionColors.red,
     features: namespacesFeatures,
+    image: '/commune-single-block_red.gif',
+
   },
   {
     sectionName: 'tokenomics',
@@ -46,6 +53,8 @@ export const sections = [
     color: 'bg-pink-400/[0.03]',
     gradientColor: gradientSectionColors.pink,
     features: tokenomicsFeatures,
+    image: '/commune-single-block_purple.gif',
+
   },
   {
     sectionName: 'validators',
@@ -54,5 +63,7 @@ export const sections = [
     color: 'bg-cyan-400/[0.03]',
     gradientColor: gradientSectionColors.cyan,
     features: validatorsFeatures,
+    image: '/commune-single-block_gray.gif',
+
   },
 ]

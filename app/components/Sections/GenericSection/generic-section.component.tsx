@@ -1,5 +1,6 @@
 import { ForwardRefExoticComponent, SVGProps } from 'react'
 import { GridLines, GradientLayer } from '../..'
+import Image from 'next/image'
 
 type Feature = {
   description: string
@@ -14,6 +15,7 @@ type GenericSectionProps = {
   color: string
   gradientColor?: string
   gradientStyle?: string
+  image: string
 }
 
 export const GenericSection = ({
@@ -24,7 +26,9 @@ export const GenericSection = ({
   color,
   gradientColor,
   gradientStyle,
+  image
 }: GenericSectionProps) => {
+  console.log(image)
   return (
     <section
       id={sectionName}
@@ -38,6 +42,17 @@ export const GenericSection = ({
 
       <div className='mx-auto flex max-w-7xl flex-col items-center justify-center text-left'>
         <div className='mx-auto max-w-2xl'>
+        <Image
+                src={image}
+                // src='/commune-gif.gif'
+                width={150}
+                height={150}
+                alt='commune logo'
+                // unoptimized
+                // className='ml-2 h-12'
+                loading='lazy'
+                className='mx-auto'
+              />
           <h2 className='text-center text-base font-semibold leading-7 text-indigo-400'>
             {subtitle}
           </h2>
