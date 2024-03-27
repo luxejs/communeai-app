@@ -45,8 +45,8 @@ export const GenericSection = ({
         <Image
                 src={image}
                 // src='/commune-gif.gif'
-                width={150}
-                height={150}
+                width={130}
+                height={130}
                 alt='commune logo'
                 // unoptimized
                 // className='ml-2 h-12'

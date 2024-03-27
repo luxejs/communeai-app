@@ -19,8 +19,8 @@ export const HeroSection = () => {
         <Image
                 // src='/comai-webp.webp'
                 src='/commune-gif.gif'
-                width={200}
-                height={200}
+                width={150}
+                height={150}
                 alt='commune logo'
                 // unoptimized
                 // className='ml-2 h-12'
