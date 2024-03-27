@@ -18,7 +18,7 @@ export const HeroSection = () => {
         <div className='mx-auto flex max-w-2xl flex-shrink-0 flex-col items-center justify-center lg:mx-0 lg:max-w-xl'>
         <Image
                 // src='/comai-webp.webp'
-                src='/commune-gif.gif'
+                src='/commune-gif-optimized.gif'
                 width={150}
                 height={150}
                 alt='commune logo'
