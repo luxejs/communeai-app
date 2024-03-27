@@ -46,7 +46,7 @@ export const DevDiscordWidget = async () => {
 
         <Link
           className='relative hover:animate-scale-up-sm'
-          href={data.instant_invite || links.discord}
+          href={links.devDiscord}
           target='_blank'
           rel='noopener noreferrer'
         >
