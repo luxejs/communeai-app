@@ -3,7 +3,7 @@ import React from 'react'
 
 const navigation = {
   main: [
-    // { name: 'Home', href: links.home },
+    { name: 'Home', href: links.home },
     { name: 'Docs', href: links.docs },
     { name: 'Whitepaper', href: links.whitepaper },
     { name: 'Modules', href: links.comhub },
