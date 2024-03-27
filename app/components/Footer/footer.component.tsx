@@ -62,7 +62,7 @@ const navigation = {
 
 export const Footer = () => {
   return (
-    <footer className='mt-8 bg-gray-800/90'>
+    <footer className='mt-8 bg-transparent'>
       <div className='mx-auto flex max-w-7xl flex-col items-center overflow-hidden px-6 py-12 lg:px-8'>
         <nav
           className='-mb-6 columns-3 text-center sm:flex sm:justify-center sm:space-x-12'
