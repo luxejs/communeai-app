@@ -29,6 +29,8 @@ const HeaderLink = ({
 const navigation = [
   { name: 'Docs', href: links.docs, external: false },
   { name: 'Whitepaper', href: links.whitepaper, external: true },
+  { name: 'Modules', href: links.comhub, external: true },
+
 ]
 
 export const Header = () => {
