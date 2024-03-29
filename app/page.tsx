@@ -8,6 +8,7 @@ import {
 } from './components'
 import Loading from './loading'
 import { sections } from './utils'
+import { CommuneChat } from './components/CommuneAgent/commune-widget-agent.component'
 
 export default async function Home() {
   return (
@@ -32,6 +33,7 @@ export default async function Home() {
         <FrequentQuestions />
       </div>
       <Footer />
+      <CommuneChat/>
     </Suspense>
   )
 }
