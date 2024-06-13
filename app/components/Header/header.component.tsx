@@ -108,7 +108,7 @@ export const Header = () => {
           <div className='col-span-3 lg:hidden '>
             <button type='button' className={`${commonButtonClass} -m-2.5`} onClick={toggleMobileMenu}>
               <span className='sr-only'>Open main menu</span>
-              {/* <EllipsisVerticalIcon className='h-6 w-6' aria-hidden='true' /> */}
+              <EllipsisVerticalIcon className='h-6 w-6' aria-hidden='true' />
               <p className="text-md">socials</p>
 
             </button>
