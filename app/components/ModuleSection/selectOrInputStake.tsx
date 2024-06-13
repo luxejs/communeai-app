@@ -15,12 +15,12 @@ export default function SelectOrInput({ isConnected, amount, setAmount } : Selec
       setIsEditing(!isEditing);
     };
   
-    // @ts-ignore: Ignoring implicit any type for event parameter
+    // @ts-expect-error: Ignoring implicit any type for event parameter
     const handleInputChange = (e) => {
       setAmount(e.target.value);
     };
   
-    // @ts-ignore: Ignoring implicit any type for event parameter
+    // @ts-expect-error: Ignoring implicit any type for event parameter
     const handleSelectChange = (e) => {
       setAmount(e.target.value);
     };
