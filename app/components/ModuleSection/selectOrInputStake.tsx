@@ -8,17 +8,19 @@ interface SelectOrInputProps {
     setAmount: (amount: string) => void;
   }
 
-export default function SelectOrInput({ isConnected, amount, setAmount }:SelectOrInputProps) {
+export default function SelectOrInput({ isConnected, amount, setAmount } : SelectOrInputProps) {
     const [isEditing, setIsEditing] = useState(false);
 
     const toggleEditing = () => {
       setIsEditing(!isEditing);
     };
   
+    // @ts-ignore: Ignoring implicit any type for event parameter
     const handleInputChange = (e) => {
       setAmount(e.target.value);
     };
   
+    // @ts-ignore: Ignoring implicit any type for event parameter
     const handleSelectChange = (e) => {
       setAmount(e.target.value);
     };
