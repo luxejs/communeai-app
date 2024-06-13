@@ -1,13 +1,13 @@
-import { gradientSectionColors, gradientModuleColors } from './gradientSectionColors'
-import { namespacesFeatures } from './namespaces-features'
+import { gradientModuleColors } from './gradientSectionColors'
+// import { namespacesFeatures } from './namespaces-features'
 
-function getRandomGradientColor() {
-  const colors = Object.values(gradientModuleColors);
-  const randomIndex = Math.floor(Math.random() * colors.length);
-  return colors[randomIndex];
-}
+// function getRandomGradientColor() {
+//   const colors = Object.values(gradientModuleColors);
+//   const randomIndex = Math.floor(Math.random() * colors.length);
+//   return colors[randomIndex];
+// }
 
-const gradientColor = getRandomGradientColor();
+// const gradientColor = getRandomGradientColor();
 
 export const modules = [
   // {

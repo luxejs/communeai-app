@@ -1,7 +1,7 @@
 "use client"
-import React, { createContext, useContext, useEffect, useState, useCallback } from "react"
+import React, { createContext, useContext, useEffect, useState } from "react"
 import { ApiPromise, WsProvider } from "@polkadot/api"
-import { NET_ID, PLATFORM_FEE } from "@/app/wallet/constants"
+import { NET_ID } from "@/app/wallet/constants"
 import { IAddStaking, ITransfer, ITransferStaking } from "@/app/wallet/types"
 import {
   InjectedAccountWithMeta,
@@ -115,6 +115,7 @@ export const PolkadotProvider: React.FC<PolkadotProviderProps> = ({
       })
       .then((response) => {
         successToast("Transaction Submitted")
+        console.log(response)
         callback?.()
       })
       .catch((err) => {
@@ -132,6 +133,7 @@ export const PolkadotProvider: React.FC<PolkadotProviderProps> = ({
       })
       .then((response) => {
         successToast("Transaction Submitted")
+        console.log(response)
         callback?.()
       })
       .catch((err) => {
