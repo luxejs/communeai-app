@@ -59,7 +59,7 @@ export const ModuleSection = ({
                 </div>
                 <Link href={url} target={'_blank'}>
 
-                    <div className="rounded-lg bg-gray-900 inline-block p-2">
+                    <div className="rounded-lg bg-gray-900 inline-block p-2 transition-transform transform hover:scale-110">
 
                         <h2 className='text-center text-sm font-mono font-extralight text-white'>
 
@@ -84,7 +84,7 @@ export const ModuleSection = ({
             }
 
             <div className='m-12 flex max-w-7xl flex-col items-center justify-center text-left'>
-                <div className='mx-auto max-w-2xl'>
+                <div className='mx-auto max-w-2xl transition-transform transform hover:scale-110'>
 
                     <Link href={url} target={'_blank'}>
                         <Image
