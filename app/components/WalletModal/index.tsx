@@ -79,7 +79,8 @@ const WalletModal = ({
       </div>
       <div className="mt-5">
         <button
-          className="w-full bg-indigo-800 text-white py-2 px-4 rounded-lg hover:bg-indigo-900"
+          className='w-full flex items-center justify-center rounded-xl bg-gradient-to-r from-indigo-500 to-purple-800 text-white py-2 px-4 shadow-lg hover:from-indigo-600 hover:to-pink-600 transition-transform transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed'
+          // className="w-full bg-indigo-800 text-white py-2 px-4 rounded-lg hover:bg-indigo-900"
           onClick={() => {
             if (!selectedAccount) {
               infoToast("Select at least one wallet!")
