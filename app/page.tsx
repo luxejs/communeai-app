@@ -9,7 +9,7 @@ import {
 import Loading from './loading'
 import { sections } from './utils'
 
-export default async function Home() {
+export default function Home() {
   return (
     <Suspense fallback={<Loading />}>
       <div className='flex flex-col items-center'>

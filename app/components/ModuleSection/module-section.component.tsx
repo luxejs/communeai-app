@@ -1,16 +1,10 @@
 'use client'
 
-import { ForwardRefExoticComponent, SVGProps } from 'react'
 import { GridLines, GradientLayer } from '../BackgroundEffects'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePolkadot } from "@/app/wallet/context"
 
-
-// type Feature = {
-//   description: string
-//   icon: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>
-// }
 
 type ModuleSectionProps = {
     title: string
@@ -38,8 +32,8 @@ export const ModuleSection = ({
     flipped,
     validatorKey
 }: ModuleSectionProps) => {
-    const { isInitialized, isConnected, addStake, removeStake } = usePolkadot()
-    let parsedUrl = new URL(url)
+    const { isConnected, addStake, removeStake } = usePolkadot()
+    const parsedUrl = new URL(url)
     return (
         <section
             id={sectionName}
@@ -77,6 +71,7 @@ export const ModuleSection = ({
                             className="w-full h-full border-0"
                             src={url}
                             allowFullScreen
+                            loading='lazy'
                         ></iframe>
                     </div>
                 ) :
