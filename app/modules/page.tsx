@@ -3,39 +3,15 @@
 import { Suspense, useState } from 'react'
 import {
   ModuleSection,
-  HeroSection,
-  CallToActionSection,
-  FrequentQuestions,
+  // HeroSection,
+  // CallToActionSection,
+  // FrequentQuestions,
   Footer,
 } from '../components'
 import Loading from '../loading'
 import { modules } from '../utils'
-import Image from 'next/image'
-import Link from 'next/link'
-
-// export default async function Home() {
-//   return (
-//     <Suspense fallback={<Loading />}>
-//       <div className='flex flex-col items-center'>
-//         {modules.map((section, index) => {
-//           return (
-//             <GenericSection
-//               key={index}
-//               sectionName={section.sectionName}
-//               title={section.title}
-//               subtitle={section.subtitle}
-//               color={section.color}
-//               features={section.features}
-//               gradientColor={section.gradientColor}
-//               image={section.image}
-//             />
-//           )
-//         })}
-//       </div>
-//       <Footer />
-//     </Suspense>
-//   )
-// }
+// import Image from 'next/image'
+// import Link from 'next/link'
 
 export default function Modules() {
   const [flipped, setFlipped] = useState(false);
