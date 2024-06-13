@@ -90,6 +90,8 @@ export const Header = () => {
               <span className='sr-only'>Commune AI</span>
               <Image src={'/comhub.png'} width={45} height={45} alt='commune logo' priority className='mr-[3px]' />
             </Link>
+            <div className="h-10 border-l border-gray-300 mx-4"></div>
+
             <div className='hidden justify-start lg:flex'>
               <HeaderLink href={links.github} icon='/github-icon-white.svg' alt="Commune's Github Link" className={commonButtonClass} />
               <HeaderLink href={links.discord} icon='/discord-icon-white.svg' alt="Commune's Discord Link" className={commonButtonClass} />
@@ -144,7 +146,12 @@ export const Header = () => {
 
                 // </div>
               ) : (
-                <button onClick={handleConnect} disabled={!isInitialized} className={`${commonButtonClass}`}>
+                <button onClick={handleConnect} disabled={!isInitialized} 
+                className={`${commonButtonClass}
+                w-full rounded-xl bg-gradient-to-r text-white py-2 px-4 shadow-lg hover:from-indigo-600 hover:to-pink-600 transition-transform transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed
+
+                `}
+                >
                   <Image
                     width={35}
                     height={35}
