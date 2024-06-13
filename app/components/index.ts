@@ -4,6 +4,7 @@ export {
   CallToActionSection,
   FrequentQuestions,
 } from './Sections'
+export { ModuleSection } from './ModuleSection'
 export { GradientLayer, GridLines } from './BackgroundEffects'
 export { Header } from './Header'
 export { DiscordWidget } from './DiscordWidget'
