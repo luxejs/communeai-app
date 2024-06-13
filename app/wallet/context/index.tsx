@@ -1,5 +1,5 @@
 "use client"
-import React, { createContext, useContext, useEffect, useState } from "react"
+import React, { createContext, useContext, useEffect, useState, useCallback } from "react"
 import { ApiPromise, WsProvider } from "@polkadot/api"
 import { NET_ID, PLATFORM_FEE } from "@/app/wallet/constants"
 import { IAddStaking, ITransfer, ITransferStaking } from "@/app/wallet/types"
@@ -9,6 +9,7 @@ import {
 } from "@polkadot/extension-inject/types"
 import WalletModal from "@/app/components/WalletModal"
 import { errorToast, successToast } from "@/app/components/Toast"
+import BigNumber from "bignumber.js";
 
 interface PolkadotApiState {
   web3Accounts: (() => Promise<InjectedAccountWithMeta[]>) | null
@@ -28,6 +29,7 @@ interface PolkadotContextType {
   removeStake: (args: IAddStaking) => void
   transfer: (args: ITransfer) => void
   transferStake: (args: ITransferStaking) => void
+  balance: BigNumber | undefined;
 }
 
 const PolkadotContext = createContext<PolkadotContextType | undefined>(
@@ -38,6 +40,8 @@ interface PolkadotProviderProps {
   children: React.ReactNode
   wsEndpoint: string
 }
+let interval: any;
+
 
 export const PolkadotProvider: React.FC<PolkadotProviderProps> = ({
   children,
@@ -54,6 +58,8 @@ export const PolkadotProvider: React.FC<PolkadotProviderProps> = ({
     web3Enable: null,
     web3FromAddress: null,
   })
+  const [balance, setBalance] = useState<BigNumber | undefined>();
+
   async function loadPolkadotApi() {
     const { web3Accounts, web3Enable, web3FromAddress } = await import(
       "@polkadot/extension-dapp"
@@ -177,11 +183,33 @@ export const PolkadotProvider: React.FC<PolkadotProviderProps> = ({
         errorToast(err)
       })
   }
-  async function handleWalletSelections(wallet: InjectedAccountWithMeta) {
-    setSelectedAccount(wallet)
-    setIsConnected(true)
-    setOpenModal(false)
+
+  async function getBalance(wallet: InjectedAccountWithMeta) {
+    if (!api || !wallet) return;
+    const { data } = (await api.query.system.account(wallet.address)) as any;
+    return new BigNumber(data.free.toString()).div(10 ** 9);
   }
+
+  // async function handleWalletSelections(wallet: InjectedAccountWithMeta) {
+  //   setSelectedAccount(wallet)
+  //   setIsConnected(true)
+  //   setOpenModal(false)
+  // }
+
+  const handleWalletSelections = (wallet: InjectedAccountWithMeta) => {
+    setSelectedAccount(wallet);
+   
+    window.localStorage.setItem("selectedAccount", JSON.stringify(wallet));
+    setIsConnected(true);
+    if (interval) {
+      clearInterval(interval);
+    }
+    getBalance(wallet).then((res) => setBalance(res));
+    interval = setInterval(() => {
+      getBalance(wallet).then((res) => setBalance(res));
+    }, 20000);
+    setOpenModal(false)
+    }  
 
   return (
     <PolkadotContext.Provider
@@ -197,6 +225,7 @@ export const PolkadotProvider: React.FC<PolkadotProviderProps> = ({
         transfer,
         removeStake,
         transferStake,
+        balance
       }}
     >
       <WalletModal
