@@ -36,7 +36,7 @@ const HeaderLink = ({
 )
 
 const navigation = [
-  { name: 'Docs', href: links.docs, external: true },
+  { name: 'Docs', href: links.docs, external: false },
   { name: 'Home', href: links.home, external: false },
   { name: 'Modules', href: links.modules, external: false },
 
