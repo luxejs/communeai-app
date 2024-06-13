@@ -4,7 +4,8 @@ import { GridLines, GradientLayer } from '../BackgroundEffects'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePolkadot } from "@/app/wallet/context"
-
+import SelectOrInput from "./selectOrInputStake"
+import { useState } from 'react'
 
 type ModuleSectionProps = {
     title: string
@@ -34,6 +35,9 @@ export const ModuleSection = ({
 }: ModuleSectionProps) => {
     const { isConnected, addStake, removeStake } = usePolkadot()
     const parsedUrl = new URL(url)
+
+    const [amount, setAmount] = useState('1');
+
     return (
         <section
             id={sectionName}
@@ -142,27 +146,12 @@ export const ModuleSection = ({
                     <div className="flex justify-center space-x-4">
                         <button
                             disabled={!isConnected}
-                            onClick={() => { addStake({ validator: validatorKey, amount: String(1) }) }}
+                            onClick={() => { addStake({ validator: validatorKey, amount: amount }) }}
                             className='flex w-1/4 items-center justify-center rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-2 px-4 shadow-lg hover:from-indigo-600 hover:to-purple-600 transition-transform transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed'
                         >
                             Stake
                         </button>
-                        <select
-                            disabled={!isConnected}
-                            className='rounded-xl bg-gray-900/50 border border-white border-opacity-[0.23] text-white py-2 px-4 shadow-lg transition-transform transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed'
-                            value={0}
-                        // onChange={handleAmountChange}
-                        >
-                            {/* <option disabled selected>{`${isConnected ? 'select $COMAI amount' : 'connect to select $COMAI amount'}`}</option> */}
-                            <option value="1">1 $COMAI</option>
-                            <option value="10">10 $COMAI</option>
-                            <option value="100">100 $COMAI</option>
-                            <option value="1000">1,000 $COMAI</option>
-                            <option value="10000">10,000 $COMAI</option>
-                            <option value="100000">100,000 $COMAI</option>
-                            <option value="1000000">1,000,000 $COMAI</option>
-
-                        </select>
+                        <SelectOrInput isConnected={isConnected} amount={amount} setAmount={setAmount} />
                         {/* <div
                             className='rounded-xl bg-gray-900/50 border border-white border-opacity-[0.23] text-white py-2 px-4 shadow-lg transition-transform transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed'
 
@@ -173,7 +162,7 @@ export const ModuleSection = ({
                         </div> */}
                         <button
                             disabled={!isConnected}
-                            onClick={() => { removeStake({ validator: validatorKey, amount: String(1) }) }}
+                            onClick={() => { removeStake({ validator: validatorKey, amount: amount }) }}
                             className='flex w-1/4 items-center justify-center rounded-xl bg-gradient-to-r from-red-500 to-pink-500 text-white py-2 px-4 shadow-lg hover:from-red-600 hover:to-pink-600 transition-transform transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed'
                         >
                             Unstake
