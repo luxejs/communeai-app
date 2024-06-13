@@ -6,6 +6,15 @@ import Link from 'next/link'
 import { links } from '@/app/utils'
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
 
+// polkadot 
+import {
+  FaSpinner,
+  FaWallet
+} from "react-icons/fa"
+import { FaSackDollar } from "react-icons/fa6";
+import { usePolkadot } from "@/app/wallet/context"
+import { truncateWalletAddress } from "@/app/wallet/utils"
+
 type THeaderLinkProps = {
   href: string
   target?: string
@@ -29,18 +38,21 @@ const HeaderLink = ({
 const navigation = [
   { name: 'Docs', href: links.docs, external: false },
   { name: 'Whitepaper', href: links.whitepaper, external: true },
-  { name: 'Modules', href: links.comhub, external: true },
+  { name: 'Modules', href: links.modules, external: false },
 
 ]
 
 export const Header = () => {
+  const { isInitialized, handleConnect, isConnected, selectedAccount, balance } = usePolkadot()
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen)
 
-  const commonButtonClass = 'flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-100/10 text-white p-1.5 hover:bg-gray-100/[0.15]'
+  const commonButtonClass = 'flex min-w-14 items-center justify-center rounded-2xl text-white p-1.5 hover:bg-gray-100/[0.15]'
 
   return (
     <>
+      {/* MOBILE MENU - MODAL */}
       <div className={`h-full w-full backdrop-blur-sm absolute z-50 ${mobileMenuOpen ? 'visible' : 'hidden'} lg:hidden animate-menu-fade`} onClick={toggleMobileMenu} >
         <nav className={`h-full w-full fixed z-50`}>
           <div className='bg-gray-800 h-auto min-w-1/4 w-[70%] sm:w-[40%] sticky top-3 right-3 ml-auto z-[50] p-5 rounded-lg'>
@@ -58,7 +70,7 @@ export const Header = () => {
                   ))}
                 </div>
                 <div className='py-6 flex space-x-3'>
-                  <HeaderLink href={links.github} icon='/github-icon-white.svg' alt="Commune's Github Link" className={`${commonButtonClass} mb-4`} />
+                  <HeaderLink href={links.github} icon='/github-icon-white.svg' alt="Commune's Github Link" className={`${commonButtonClass}`} />
                   <HeaderLink href={links.discord} icon='/discord-icon-white.svg' alt="Commune's Discord Link" className={commonButtonClass} />
                   <HeaderLink href={links.x} icon='/x-icon-white.svg' alt="Commune X/Twitter" className={commonButtonClass} />
                   <HeaderLink href={links.telegram} icon='/telegram-icon-white.svg' alt="Commune X/Twitter" className={commonButtonClass} />
@@ -70,12 +82,21 @@ export const Header = () => {
         </nav>
       </div>
 
+      {/* NAVBAR */}
       <header className={`z-40 sticky top-0 flex flex-none w-full border-b border-gray-50/[0.06] backdrop-blur transition-colors duration-500`}>
         <nav className={`p-4 px-6 mx-auto grid w-full grid-flow-col grid-cols-3 items-center justify-between`} aria-label='Global'>
-          <Link href={links.home} className={`col-span-1 ${commonButtonClass}`}>
-            <span className='sr-only'>Commune AI</span>
-            <Image src={'/comhub.png'} width={25} height={25} alt='commune logo' priority className='mr-[3px]' />
-          </Link>
+          <div className="flex items-center col-span-1">
+            <Link href={links.home} className={`flex items-center ${commonButtonClass}`}>
+              <span className='sr-only'>Commune AI</span>
+              <Image src={'/comhub.png'} width={45} height={45} alt='commune logo' priority className='mr-[3px]' />
+            </Link>
+            <div className='hidden justify-start lg:flex'>
+              <HeaderLink href={links.github} icon='/github-icon-white.svg' alt="Commune's Github Link" className={commonButtonClass} />
+              <HeaderLink href={links.discord} icon='/discord-icon-white.svg' alt="Commune's Discord Link" className={commonButtonClass} />
+              <HeaderLink href={links.x} icon='/x-icon-white.svg' alt="Commune X/Twitter" className={commonButtonClass} />
+              <HeaderLink href={links.telegram} icon='/telegram-icon-white.svg' alt="Commune X/Twitter" className={commonButtonClass} />
+            </div>
+          </div>
           <div className='hidden justify-center lg:flex lg:gap-x-12'>
             {navigation.map(({ name, href, external }) => (
               <Link key={name} href={href} target={external ? '_blank' : '_self'} className='text-sm font-semibold leading-6 text-gray-100 hover:text-gray-400'>
@@ -83,19 +104,60 @@ export const Header = () => {
               </Link>
             ))}
           </div>
-          <div className='hidden justify-end lg:flex lg:gap-x-4'>
-            <HeaderLink href={links.github} icon='/github-icon-white.svg' alt="Commune's Github Link" className={commonButtonClass} />
-            <HeaderLink href={links.discord} icon='/discord-icon-white.svg' alt="Commune's Discord Link" className={commonButtonClass} />
-            <HeaderLink href={links.x} icon='/x-icon-white.svg' alt="Commune X/Twitter" className={commonButtonClass} />
-            <HeaderLink href={links.telegram} icon='/telegram-icon-white.svg' alt="Commune X/Twitter" className={commonButtonClass} />
 
-          </div>
-          <div className='col-span-3 ml-auto lg:hidden '>
+          <div className='col-span-3 lg:hidden '>
             <button type='button' className={`${commonButtonClass} -m-2.5`} onClick={toggleMobileMenu}>
               <span className='sr-only'>Open main menu</span>
-              <EllipsisVerticalIcon className='h-6 w-6' aria-hidden='true' />
+              {/* <EllipsisVerticalIcon className='h-6 w-6' aria-hidden='true' /> */}
+              <p className="text-md">socials</p>
+
             </button>
           </div>
+          {!isInitialized &&
+            <button className={`${commonButtonClass}`}>
+
+              <FaSpinner className="flex animate-spin text-white" />
+            </button>
+          }
+
+          {isInitialized && (
+            <>
+              {selectedAccount ? (
+                // <div className="relative flex items-center rounded-full shadow py-2">
+                <button className={`${commonButtonClass}`} onClick={handleConnect}>
+                  <div className="flex items-center">
+                    <FaWallet size={24} className="text-white" />
+                    <span className="ml-2 font-mono text-white">
+                      {truncateWalletAddress(selectedAccount.address)}
+                    </span>
+                  </div>
+                  <div className="h-10 border-l border-gray-300 mx-4"></div>
+                  <div className="flex items-center">
+                  <FaSackDollar size={20} className="text-white" />
+                    {balance !== undefined && (
+                    <span className="ml-2 font-mono text-white">
+                    {balance.toFixed(2).toString()} COMAI
+                    </span>
+                    )}
+                  </div>
+                </button>
+
+                // </div>
+              ) : (
+                <button onClick={handleConnect} disabled={!isInitialized} className={`${commonButtonClass}`}>
+                  <Image
+                    width={35}
+                    height={35}
+                    className="cursor-pointer"
+                    alt="Connect PolkadotJS Wallet"
+                    src="/polkadotjs.png"
+                  />
+                  <span className="hidden md:block"><p>&nbsp; connect wallet</p></span>
+
+                </button>
+              )}
+            </>
+          )}
         </nav>
       </header>
     </>
