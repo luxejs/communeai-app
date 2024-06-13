@@ -1,7 +1,14 @@
 import { useState } from 'react';
 import { FaChevronDown, FaEdit } from 'react-icons/fa';
 
-export default function SelectOrInput({ isConnected, amount, setAmount }) {
+// Define the prop types for SelectOrInput
+interface SelectOrInputProps {
+    isConnected: boolean;
+    amount: string;
+    setAmount: (amount: string) => void;
+  }
+
+export default function SelectOrInput({ isConnected, amount, setAmount }:SelectOrInputProps) {
     const [isEditing, setIsEditing] = useState(false);
 
     const toggleEditing = () => {
