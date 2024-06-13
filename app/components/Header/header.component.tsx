@@ -36,14 +36,14 @@ const HeaderLink = ({
 )
 
 const navigation = [
-  { name: 'Docs', href: links.docs, external: false },
-  { name: 'Whitepaper', href: links.whitepaper, external: true },
+  { name: 'Docs', href: links.docs, external: true },
+  { name: 'Home', href: links.home, external: false },
   { name: 'Modules', href: links.modules, external: false },
 
 ]
 
 export const Header = () => {
-  const { isInitialized, handleConnect, isConnected, selectedAccount, balance } = usePolkadot()
+  const { isInitialized, handleConnect, selectedAccount, balance } = usePolkadot()
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen)
@@ -116,7 +116,7 @@ export const Header = () => {
             </button>
           </div>
           {!isInitialized &&
-            <button className={`${commonButtonClass}`}>
+            <button className='flex items-center justify-center disabled'>
 
               <FaSpinner className="flex animate-spin text-white" />
             </button>
