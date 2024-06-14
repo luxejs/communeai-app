@@ -10,23 +10,23 @@ import { gradientModuleColors } from './gradientSectionColors'
 // const gradientColor = getRandomGradientColor();
 
 export const modules = [
-  // {
-  //   sectionName: 'comhub',
-  //   title: 'ComHub',
-  //   subtitle: 'The hub for Commune Ai modules',
-  //   color: 'bg-blue-400/[0.03]',
-  //   gradientColor: gradientModuleColors.violet,
-  //   image: '/comhub.png',
-  //   url: 'https://communeai.app/',
-  //   validatorKey: "5EJ9AUpSGafWeagdP5nwc5AwcYBkagYSZyx2BmLKWJrGBZUZ",
-  // },
+  {
+    sectionName: 'comhub',
+    title: 'ComHub',
+    subtitle: 'The hub for Commune Ai modules',
+    color: 'bg-blue-400/[0.03]',
+    gradientColor: gradientModuleColors.violet,
+    image: '/comhub.png',
+    url: 'https://comhub.app/',
+    validatorKey: "5EJ9AUpSGafWeagdP5nwc5AwcYBkagYSZyx2BmLKWJrGBZUZ",
+  },
   {
     sectionName: 'comai',
     title: 'CommuneAi',
     subtitle: 'CommuneAI homepage',
     color: 'bg-blue-400/[0.03]',
     gradientColor: gradientModuleColors.violet,
-    image: '/comhub.png',
+    image: '/communeai-org.png',
     url: 'https://communeai.org/',
     validatorKey: "5EJ9AUpSGafWeagdP5nwc5AwcYBkagYSZyx2BmLKWJrGBZUZ",
   },
