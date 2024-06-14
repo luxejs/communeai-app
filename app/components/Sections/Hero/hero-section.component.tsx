@@ -38,8 +38,10 @@ export const HeroSection = () => {
           </p>
           <div className='z-10 mt-10 flex animate-scale-down-md items-center gap-x-6'>
             <Link
-              href='#discord'
-              className='font-base rounded-3xl  bg-gradient-to-br from-indigo-500 to-blue-800 px-3.5 py-2.5 text-sm text-white shadow-sm hover:animate-scale-up-sm  hover:from-indigo-500 hover:to-blue-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400'
+              href='/modules'
+              // className='font-base rounded-3xl  bg-gradient-to-br from-indigo-500 to-blue-800 px-3.5 py-2.5 text-sm text-white shadow-sm hover:animate-scale-up-sm  hover:from-indigo-500 hover:to-blue-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400'
+              className='w-full flex items-center justify-center rounded-3xl bg-gradient-to-r from-indigo-500 to-purple-800 text-white py-2 px-4 shadow-lg hover:from-indigo-600 hover:to-pink-600 transition-transform transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed'
+
             >
               <span aria-label='Get started with Commune AI'>Get Started</span>
             </Link>
