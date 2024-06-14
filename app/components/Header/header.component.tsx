@@ -106,23 +106,22 @@ export const Header = () => {
           </div>
           <div className='hidden justify-center lg:flex lg:gap-x-12'>
             {navigation.map(({ name, href, external }) => (
-                  <div key={name} className="flex flex-col items-center">
+              <div key={name} className="flex flex-col items-center">
 
-              <Link key={name} href={href} target={external ? '_blank' : '_self'}
-                className={`text-sm leading-6 text-gray-100 hover:text-indigo-400 ${currentPath === href ? 'font-bold text-md' : 'font-light'
-                  }`}
-              >
-                {name}
-              </Link>
-              {/* {currentPath === href && <span className="absolute top-16 w-2 h-2 bg-white rounded-full"></span>} */}
-    </div>
+                <Link key={name} href={href} target={external ? '_blank' : '_self'}
+                  className={`text-sm leading-6 text-gray-100 hover:text-indigo-400 ${currentPath === href ? 'font-bold text-md' : 'font-light'
+                    }`}
+                >
+                  {name}
+                </Link>
+                {/* {currentPath === href && <span className="absolute top-16 w-2 h-2 bg-white rounded-full"></span>} */}
+              </div>
             ))}
           </div>
 
           <div className='col-span-3 lg:hidden '>
             <button type='button' className={`${commonButtonClass} -m-2.5`} onClick={toggleMobileMenu}>
-              <span className='sr-only'>Open main menu</span>
-              <EllipsisVerticalIcon className='h-6 w-6' aria-hidden='true' />
+              {/* <EllipsisVerticalIcon className='h-6 w-6' aria-hidden='true' /> */}
               <p className="text-md">menu</p>
 
             </button>
