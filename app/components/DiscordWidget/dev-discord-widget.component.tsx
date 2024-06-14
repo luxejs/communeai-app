@@ -2,7 +2,7 @@ import { links } from '@/app/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const serverId = '1220814801551364126'
+const serverId = '1224839248536932362'
 const uri = `https://discord.com/api/guilds/${serverId}/widget.json`
 
 async function getDiscordWidgetData() {
