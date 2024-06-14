@@ -5,6 +5,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { links } from '@/app/utils'
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
+import { usePathname } from 'next/navigation'
 
 // polkadot 
 import {
@@ -49,6 +50,7 @@ export const Header = () => {
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen)
 
   const commonButtonClass = 'flex min-w-14 items-center justify-center rounded-2xl text-white p-1.5 hover:bg-gray-100/[0.15]'
+  const currentPath = usePathname();
 
   return (
     <>
@@ -87,8 +89,11 @@ export const Header = () => {
         <nav className={`p-4 px-6 mx-auto grid w-full grid-flow-col grid-cols-3 items-center justify-between`} aria-label='Global'>
           <div className="flex items-center col-span-1">
             <Link href={links.home} className={`flex items-center ${commonButtonClass}`}>
-              <span className='sr-only'>Commune AI</span>
               <Image src={'/comhub.png'} width={45} height={45} alt='commune logo' priority className='mr-[3px]' />
+              <span className="font-mono">ComHub</span>
+              {/* <h1 className='animate-scale-down-md bg-gradient-to-br from-white to-pink-500 bg-clip-text text-sm font-mono tracking-tight text-transparent'>
+              ComHub
+            </h1> */}
             </Link>
             <div className="h-10 border-l border-gray-300 mx-4"></div>
 
@@ -101,9 +106,16 @@ export const Header = () => {
           </div>
           <div className='hidden justify-center lg:flex lg:gap-x-12'>
             {navigation.map(({ name, href, external }) => (
-              <Link key={name} href={href} target={external ? '_blank' : '_self'} className='text-sm font-semibold leading-6 text-gray-100 hover:text-gray-400'>
+                  <div key={name} className="flex flex-col items-center">
+
+              <Link key={name} href={href} target={external ? '_blank' : '_self'}
+                className={`text-sm leading-6 text-gray-100 hover:text-indigo-400 ${currentPath === href ? 'font-bold text-md' : 'font-light'
+                  }`}
+              >
                 {name}
               </Link>
+              {/* {currentPath === href && <span className="absolute top-16 w-2 h-2 bg-white rounded-full"></span>} */}
+    </div>
             ))}
           </div>
 
@@ -111,7 +123,7 @@ export const Header = () => {
             <button type='button' className={`${commonButtonClass} -m-2.5`} onClick={toggleMobileMenu}>
               <span className='sr-only'>Open main menu</span>
               <EllipsisVerticalIcon className='h-6 w-6' aria-hidden='true' />
-              <p className="text-md">socials</p>
+              <p className="text-md">menu</p>
 
             </button>
           </div>
@@ -135,19 +147,19 @@ export const Header = () => {
                   </div>
                   <div className="h-10 border-l border-gray-300 mx-4"></div>
                   <div className="flex items-center">
-                  <FaSackDollar size={20} className="text-white" />
+                    <FaSackDollar size={20} className="text-white" />
                     {balance !== undefined && (
-                    <span className="ml-2 font-mono text-white">
-                    {balance.toFixed(2).toString()} COMAI
-                    </span>
+                      <span className="ml-2 font-mono text-white">
+                        {balance.toFixed(2).toString()} COMAI
+                      </span>
                     )}
                   </div>
                 </button>
 
                 // </div>
               ) : (
-                <button onClick={handleConnect} disabled={!isInitialized} 
-                className={`${commonButtonClass}
+                <button onClick={handleConnect} disabled={!isInitialized}
+                  className={`${commonButtonClass}
                 w-full rounded-xl bg-gradient-to-r text-white py-2 px-4 shadow-lg hover:from-indigo-600 hover:to-pink-600 transition-transform transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed
 
                 `}
