@@ -55,7 +55,7 @@ export const ModuleSection = ({
                     <button className="h-4 w-4 bg-[#fdbc2e] rounded-full hover:bg-[#e7a718] transition-colors"></button>
                     <button className="h-4 w-4 bg-[#26c940] rounded-full hover:bg-[#1e9b30] transition-colors"></button>
                 </div>
-                <Link href={url} target={'_blank'}>
+                <Link href={url} >
 
                     <div className="rounded-lg bg-gray-900 inline-block p-2 transition-transform transform hover:scale-110">
 
@@ -85,7 +85,7 @@ export const ModuleSection = ({
             <div className='m-12 flex max-w-7xl flex-col items-center justify-center text-left'>
                 <div className='mx-auto max-w-2xl transition-transform transform hover:scale-110'>
 
-                    <Link href={url} target={'_blank'}>
+                    <Link href={url} >
                         <Image
                             src={image}
                             // src='/commune-gif.gif'
