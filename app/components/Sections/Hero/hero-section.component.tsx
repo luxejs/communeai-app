@@ -10,7 +10,7 @@ export const HeroSection = () => {
     >
       <GridLines />
       <GradientLayer
-        gradientColor='from-sky-400 to-sky-200 scale-50 sm:scale-[65%] md:scale-75'
+        gradientColor='from-[#6366F1] to-black scale-50 sm:scale-[65%] md:scale-75'
         wrapperOverwriteStyle='md:top-[calc(55%-30rem)] top-[calc(60%-30rem)]'
       />
 
@@ -29,7 +29,7 @@ export const HeroSection = () => {
           <div className='flex items-center'>
             
             <h1 className='animate-scale-down-md bg-gradient-to-br from-sky-300 to-white bg-clip-text text-5xl font-bold tracking-tight text-transparent'>
-              commune ai
+              commune ai 
             </h1>
 
           </div>
