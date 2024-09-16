@@ -48,51 +48,64 @@ export default async function Docs({ params }: { params: { slug: string } }) {
     return false
   }
 
-
   const previousContent = getPreviousContent()
   const nextContent = getNextContent()
   return (
     <>
-      <section className={`mx-auto w-full h-max`}>
-        <DocSidebar params={params} activeTutorial={activeTutorial} activeContent={activeContent} prefix={prefix} />
+      <section className={`mx-auto h-max w-full dark:bg-[#131B2A]`}>
+        <DocSidebar
+          params={params}
+          activeTutorial={activeTutorial}
+          activeContent={activeContent}
+          prefix={prefix}
+        />
 
-        <div className='flex h-[calc(100svh-129px)] w-full flex-col items-center overflow-y-scroll lg:pl-[19.5rem] pt-12'>
-          <div className='prose prose-invert flex w-full max-w-[70%] flex-col'>
+        <div className='flex h-[calc(100svh-129px)] w-full flex-col items-center overflow-y-scroll pt-6 md:pt-10 lg:h-[calc(100svh-81px)] lg:pl-[19.5rem]'>
+          <div className='text-subtitle prose flex w-full max-w-[100%] flex-col px-8 dark:prose-invert sm:max-w-[80%] xl:max-w-[70%] 2xl:max-w-6xl dark:text-gray-200'>
+            <div className='mb-6 flex w-full justify-end'>
+              <Link
+                target='_blank'
+                href={`https://github.com/luxejs/communeai-app/blob/prod/app/docs/%5B...slug%5D/tutorials/${params.slug[1]}.mdx`}
+                className='border-title text-title shadow-custom hover:animate-squeeze dark:border-titleDark dark:text-titleDark dark:shadow-customDark flex rounded-xl border-2 bg-white px-4 py-2 text-center text-sm font-medium no-underline dark:bg-transparent'
+              >
+                <span>Edit</span>
+              </Link>
+            </div>
             {!!tutorials[activeTutorial].contents[activeContent] &&
               tutorials[activeTutorial].contents[activeContent].component}
-          </div>
-          <div className='mb-10 mt-20  flex w-full max-w-[70%] justify-between text-base'>
-            {!!previousContent && (
-              <Link
-                className='flex flex-col items-start rounded-2xl p-2 text-left text-gray-400 transition ease-in-out hover:border-gray-300 hover:text-gray-200'
-                href={`${prefix}/${previousContent.id}/${previousContent.content.href}`}
-              >
-                <span className='text-gray-300'>
-                  {previousContent.content.name}
-                </span>
-                <span className='flex text-xs'>
-                  <ArrowLongLeftIcon width={14} className='mr-2' />
-                  Previous
-                </span>
-              </Link>
-            )}
-            {!!nextContent && (
-              <Link
-                className='ml-auto flex flex-col items-end rounded-2xl p-2 text-end text-gray-400 transition ease-in-out hover:border-gray-300 hover:text-gray-200'
-                href={`${prefix}/${nextContent.id}/${nextContent.content.href}`}
-              >
-                <span className='text-gray-300'>
-                  {nextContent.content.name}
-                </span>
-                <span className='flex text-xs'>
-                  Next
-                  <ArrowLongRightIcon width={14} className='ml-2' />
-                </span>
-              </Link>
-            )}
+            <div className='mb-10 mt-20 flex w-full max-w-[100%] justify-between text-base'>
+              {!!previousContent && (
+                <Link
+                  className='flex flex-col items-start rounded-2xl p-2 text-left text-gray-400 transition ease-in-out hover:border-gray-300 hover:text-gray-200'
+                  href={`${prefix}/${previousContent.id}/${previousContent.content.href}`}
+                >
+                  <span className='text-subtitle dark:text-white'>
+                    {previousContent.content.name}
+                  </span>
+                  <span className='text-title dark:text-titleDark flex text-xs'>
+                    <ArrowLongLeftIcon width={14} className='mr-2' />
+                    Previous
+                  </span>
+                </Link>
+              )}
+              {!!nextContent && (
+                <Link
+                  className='ml-auto flex flex-col items-end rounded-2xl p-2 text-end text-gray-400 transition ease-in-out hover:border-gray-300 hover:text-gray-200'
+                  href={`${prefix}/${nextContent.id}/${nextContent.content.href}`}
+                >
+                  <span className='text-subtitle dark:text-white'>
+                    {nextContent.content.name}
+                  </span>
+                  <span className='text-title dark:text-titleDark flex text-xs'>
+                    Next
+                    <ArrowLongRightIcon width={14} className='ml-2' />
+                  </span>
+                </Link>
+              )}
+            </div>
           </div>
         </div>
-      </section >
+      </section>
     </>
   )
 }
